@@ -245,4 +245,4 @@ _(link to be added)_
 
 ## Team
 
-**A308** — Utkarsh Kashyap (lead) and Kshitij Pramod Ramtekkar, IIT Kanpur.
+**A308** — Kshitij Pramod Ramtekkar and Utkarsh Kashyap, IIT Kanpur.
