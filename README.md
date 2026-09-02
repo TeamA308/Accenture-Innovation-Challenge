@@ -239,9 +239,6 @@ PROJECT_MANUAL.md      plain-language guide to everything above
 - **[docs/business_proposal.md](docs/business_proposal.md)** — problem framing,
   target users, business case, roadmap, risks.
 
-## Demo video
-
-_(link to be added)_
 
 ## Team
 
