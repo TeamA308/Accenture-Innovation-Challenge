@@ -1,0 +1,44 @@
+# Optional. The supported way to run this project is `python run.py`, which
+# needs nothing but Python. This file exists for reviewers who prefer a
+# container. It runs the same single service against SQLite.
+#
+#   docker compose up --build     ->  http://localhost:8000
+#
+# To run against Postgres and Redis instead, uncomment the two services below
+# and the matching environment lines. The application code is unchanged: both
+# backends sit behind the same interfaces.
+
+services:
+  controlplane:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8000
+      SEED_DEMO_DATA: "true"
+      # DATABASE_URL: postgresql+asyncpg://controlplane:controlplane@postgres:5432/controlplane
+      # REDIS_URL: redis://redis:6379/0
+    volumes:
+      - controlplane-data:/app/data
+    # depends_on:
+    #   - postgres
+    #   - redis
+
+  # postgres:
+  #   image: postgres:16
+  #   environment:
+  #     POSTGRES_USER: controlplane
+  #     POSTGRES_PASSWORD: controlplane
+  #     POSTGRES_DB: controlplane
+  #   volumes:
+  #     - pg-data:/var/lib/postgresql/data
+
+  # redis:
+  #   image: redis:7
+
+volumes:
+  controlplane-data:
+  # pg-data:
